@@ -7,6 +7,7 @@ class Admin extends CI_Controller {
 	public function index()
 	{ 
 		$this->load->view('header.html');
+		$this->load->view('index.html');
 		$this->load->view('footer.html');
 			
 	}

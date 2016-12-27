@@ -1,25 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Welcome extends CI_Controller {
+class School extends CI_Controller {
 
 	
-	public function index()
+	public function catSchool()
 	{
 		$this->load->view('index.html');
 			
 	}
-	public function insert()
-	{
-		$this->load->view('insert.html');
-		
-	}
-	public function login()
+	public function addSchool()
 	{
 		$this->load->view('login.html');
 		
 	}
-	public function design()
+	public function findSchool()
 	{
 		$this->load->view('design.html');
 		
