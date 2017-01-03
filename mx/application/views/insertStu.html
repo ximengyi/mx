@@ -13,6 +13,7 @@
                                 <th><i class="require-red">*</i>姓名：</th>
                                 <td>
                                     <input class="common-text required" id="title" name="stuname" size="30" value="" type="text">
+                                    <?php echo form_error('stuname','<span>','</span>') ?>
                                 </td>
                             </tr>
                             <tr>
@@ -21,24 +22,33 @@
                                  <input type ="radio"  value ="男" name ="sex"/>男
                                  &nbsp  &nbsp
                                  <input type ="radio"  value ="女" name ="sex"/>女
+                                     <?php echo form_error('sex','<span>','</span>') ?>
                             </td>
                         </tr>
                             <tr>
                                <th><i class="require-red">*</i>出生年月：</th>
-                                <td><input class="common-text" name="birthday" size="50" value="admin" type="date"></td>
+                                <td><input class="common-text" name="birthday" size="50" value="admin" type="date">
+                                    <?php echo form_error('birthday','<span>','</span>') ?>
+                                </td>
                             </tr>
 
                              <tr>
                                 <th width="100"><i class="require-red">*</i>家长姓名：</th>
-                                <td><input class="common-text" name="parentname" size="25" value="" type="text"></td>
+                                <td><input class="common-text" name="parentname" size="25" value="" type="text">
+                                  <?php echo form_error('parentname','<span>','</span>') ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th width="60"><i class="require-red">*</i>联系电话：</th>
-                                <td><input class="common-text" name="phone" size="25" value="" type="text"></td>
+                                <td><input class="common-text" name="phone" size="25" value="" type="text">
+                                  <?php echo form_error('phone','<span>','</span>') ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th><i class="require-red">*</i>家庭住址：</th>
-                                <td><input class="common-text" name="addreess" size="80" id="" type="text"></td>
+                                <td><input class="common-text" name="addreess" size="80" id="" type="text">
+                                  <?php echo form_error('addreess','<span>','</span>') ?>
+                                </td>
                             </tr>
                             <tr>
                                 <th>备注内容：</th>
@@ -57,4 +67,3 @@
         </div>
 
     </div>
- 
