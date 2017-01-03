@@ -26,4 +26,12 @@ class Stu_model extends CI_Model{
 
 	 }
 
+	 public function countResult($table){
+
+		 $this->db->count_all_results($table);
+
+	 }
+
+
+
     }

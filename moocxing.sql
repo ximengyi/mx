@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- 主机: localhost
--- 生成日期: 2017 �?01 �?02 �?17:14
+-- 生成日期: 2017 年 01 月 03 日 12:32
 -- 服务器版本: 5.5.53
--- PHP 版本: 5.6.27
+-- PHP 版本: 5.4.45
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -48,8 +48,19 @@ CREATE TABLE IF NOT EXISTS `student` (
   `phone` int(11) NOT NULL COMMENT '电话',
   `adreess` varchar(30) NOT NULL,
   `remarks` text NOT NULL,
-  PRIMARY KEY (` pid`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COMMENT='学生表' AUTO_INCREMENT=1 ;
+  PRIMARY KEY (` pid`),
+  UNIQUE KEY ` pid` (` pid`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COMMENT='学生表' AUTO_INCREMENT=5 ;
+
+--
+-- 转存表中的数据 `student`
+--
+
+INSERT INTO `student` (` pid`, `name`, `sex`, `birthday`, `parentname`, `phone`, `adreess`, `remarks`) VALUES
+(1, '王小二', '男', '1998-06-16', 'jcakson', 2147483647, '上海市杨浦区国定路328号', '阿道夫'),
+(2, '王小月', '女', '2006-06-13', 'marry', 2147483647, '上海市浦东新区世纪大道300号', '电脑为windo10系统'),
+(3, '朱之文', '男', '2016-06-08', '朱小云', 2147483647, '上海市杨浦区邯郸路300号36栋503', '性格比较内向，单亲家庭'),
+(4, '魏小田', '女', '2016-05-09', '魏芳芳', 2147483647, '上海市黄浦区斜土路323号', '性格活泼开朗');
 
 -- --------------------------------------------------------
 
