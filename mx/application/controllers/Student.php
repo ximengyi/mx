@@ -7,6 +7,8 @@ class Student extends CI_Controller {
 			 parent::__construct();
 			 $this->load->library('pagination');
     	 $this->load->model('Stu_model');
+			 $this->load->helper('form');
+			 $this->load->library('form_validation');
 		 }
 
 
@@ -22,8 +24,8 @@ class Student extends CI_Controller {
 
 	public function insertStu()
 	{
-		$this->load->helper('form');
-		$this->load->library('form_validation');
+
+
 		$this->form_validation->set_rules('stuname', '姓名', 'required');
 		$this->form_validation->set_rules('sex', '性别', 'required');
 		$this->form_validation->set_rules('birthday', '出生年月', 'required');
@@ -103,9 +105,52 @@ class Student extends CI_Controller {
 	}
 	public function stuAddCourse()
 	{
+		$this->form_validation->set_rules('phonenum', '姓名', 'required');
+		$this->form_validation->set_rules('course', '性别', 'required');
+		$this->form_validation->set_rules('birthday', '出生年月', 'required');
+		$this->form_validation->set_rules('parentname', '家长姓名', 'required');
+		$this->form_validation->set_rules('phone', '联系电话', 'required');
+		$this->form_validation->set_rules('addreess', '家庭住址', 'required');
+		$this->form_validation->set_rules('rtext', '备注信息', 'required');
+		$status = $this->form_validation->run();
+
+
+
 		$this->load->view('header.html');
 		$this->load->view('stuAddCourse.html');
 		$this->load->view('footer.html');
+
+
+
+		$stuname = $this->input->post('stuname');//获取表单数据
+		$sex =$this->input->post('sex');
+		$birthday = $this->input->post('birthday');
+		$parentname = $this->input->post('parentname');
+		$phone = $this->input->post('phone');
+		$addreess = $this->input->post('addreess');
+		$rtext =$this->input->post('rtext');
+
+
+
+		$studata = array(
+	 'name' =>$stuname ,
+	 'sex' =>$sex ,
+	 'birthday' =>$birthday ,
+	 'parentname' =>$parentname ,
+	 'phone' =>$phone ,
+	 'adreess' =>$addreess ,
+	 'remarks' =>$rtext
+);
+
+if ($status)
+{
+	$this->Stu_model->ins_stu($studata);
+	 success('Student/baseMessage','添加成功');
+}
+
+
+
+
 
 	}
 
@@ -131,11 +176,9 @@ class Student extends CI_Controller {
 
 				$data['stuMessage'] = $this->Stu_model->sturecord();
 
-
 				$this->load->view('header.html');
 				$this->load->view('catstu.html',$data);
 				$this->load->view('footer.html');
-
 	}
 
 	public function addCourse(){
