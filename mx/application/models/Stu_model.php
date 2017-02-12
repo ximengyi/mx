@@ -32,6 +32,30 @@ class Stu_model extends CI_Model{
 
 	 }
 
+	 public function ins_course($data){
+
+		 $this->db->insert('course',$data);
+
+	 }
+
+	 public function stu_in_cur($data){
+
+
+ 		$this->db->insert('sacourse',$data);
+
+ 	}
+
+
+	public function curecord(){
+	//$data = $this->db->select('record_id,moocid,type,title,grade,name,state,approver,time')->from('record')->order_by('record_id','desc')->get()->result_array();
+		//$array = array('moocid'=>$moocid,'state' => '未通过');
+	//	$data = $this->db->where($array)->from('record')->order_by('record_id','desc')->get()->result_array();
+				$data = $this->db->select()->from('sacourse')->get()->result_array();
+
+			 //	  $query = $this->db->('student');
+					return  $data;
+
+ }
 
 
     }
